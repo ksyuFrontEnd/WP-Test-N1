@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const swiper = new Swiper('.bannerSwiper', {
+      spaceBetween: 30,
+      slidesPerView: 1,
       autoplay: {
           delay: 3000,
       },

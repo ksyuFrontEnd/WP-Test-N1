@@ -285,6 +285,13 @@ input{
   }
 }
 
+@media screen and (min-width: 1201px)  {
+  .swiper-slide__text {
+    padding: 20px 56px;
+    max-width: 400px;
+  }
+}
+
 .swiper-slide__text h3 {
   font-family: "Roboto", sans-serif;
   font-size: 20px;
