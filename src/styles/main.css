@@ -1,3 +1,5 @@
+@import url('custom-slots.css');
+
 /* General styles */
 
 *,
@@ -329,7 +331,6 @@ input{
   background: linear-gradient(180deg, #ffe896 0%, #c08c1a 99.84%);
   color: #11111b;
   border: none;
-  
   letter-spacing: 0.2px;
   border-radius: 8px;
   text-transform: uppercase;
@@ -339,41 +340,35 @@ input{
 }
 
 /* Banner swiper pagination */
-.pagination {
+.banner-pagination {
+  position: absolute;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  z-index: 50;
+  margin-bottom: 16px;
 }
 
-.pagination span {
-  display: inline-block;
-  width: 20px; 
-  height: 4px; 
-  background-color: grey; 
-  margin: 0 5px; 
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.banner-pagination span {
+  width: 100%;
+  max-width: 28px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+  border-radius: 17px;
 }
 
-.pagination .pagination-bullet-active {
-  background-color: green; 
+.banner-pagination .swiper-pagination-bullet-active {
+  background-color: #f7c649;
 }
-
-/* .arrow-next {
-  width: 50px;
-  border-radius: 100%;
-  background-color: rgb(10, 10, 13);
-  opacity: 0.65;
-} */
 
 
 /* Banner swiper navigation */
-.navigation {
+.banner-navigation {
   display: none;
 }
 
 @media screen and (min-width: 661px) {
-  .navigation {
+  .banner-navigation {
     display: flex;
   }
 }
@@ -413,4 +408,3 @@ input{
 .arrow-prev:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
-

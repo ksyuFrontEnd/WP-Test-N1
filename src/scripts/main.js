@@ -4,11 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
           delay: 3000,
       },
       pagination: {
-        el: '.pagination',
-        type: 'custom',
+        el: ".banner-pagination",
+        clickable: true,
         renderBullet: function (index, className) {
-            console.log('Rendering bullet:', index, className);
-            return `<span class="${className}">—</span>`;
+          return '<span class="' + className + '">' + "</span>";
         },
       },
       navigation: {

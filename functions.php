@@ -10,7 +10,34 @@ function test_n1_scripts() {
     wp_enqueue_style('swiper-style', "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css", array('theme-style'));
     wp_enqueue_script('swiper-scripts', 'https://cdn.jsdelivr.net/npm/swiper@10.0.0/swiper-bundle.min.js', array(), false, true);
 
+    // Enqueue scripts and styles of plugin for Swiper
+    wp_enqueue_style('swiper-css', plugins_url('/custom-slots/assets/css/swiper.css', __FILE__));
+    wp_enqueue_script('swiper-js', plugins_url('/custom-slots/assets/js/swiper.js', __FILE__), array('jquery'), null, true);
+
+    // Initialization of Swiper
+    wp_add_inline_script('swiper-js', '
+        jQuery(document).ready(function($) {
+            var swiper = new Swiper(".swiper-container", {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                loop: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+            });
+        });
+    ');
 }
+
 
 /* Add fonts */
 function add_google_fonts()
