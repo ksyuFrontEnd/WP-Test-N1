@@ -79,6 +79,23 @@
 
     <section class="slots-section section">
         <div class="container">
+            <div class="slots-section__heading">
+                <div class="slots-section__title">
+                    <?php the_field('slots-section__title'); ?>
+                </div>
+                <div class="slots-section__btn <?php echo get_option('csd_display_type', 'grid') == 'slider' ? 'button-slider' : 'button-grid'; ?>">
+
+                    <?php 
+                    $slots_btn_link = get_field('slots_btn_link');
+                    $slots_btn_text = get_field('slots_btn_text');
+
+                    if( $slots_btn_link ): ?>
+
+                        <a class="slots__btn" href="<?php echo esc_url( $slots_btn_link ); ?>"><?php echo esc_attr( $slots_btn_text ); ?></a>
+                    <?php endif; ?>
+
+                </div>
+            </div>
             <?php
             
             if (function_exists('custom_display_slots')) {

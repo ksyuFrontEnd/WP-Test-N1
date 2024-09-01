@@ -14,30 +14,41 @@ function test_n1_scripts() {
     wp_enqueue_style('swiper-css', plugins_url('/custom-slots/assets/css/swiper.css', __FILE__));
     wp_enqueue_script('swiper-js', plugins_url('/custom-slots/assets/js/swiper.js', __FILE__), array('jquery'), null, true);
 
+    wp_enqueue_style('custom-slots-plugin-styles', plugins_url('/custom-slots/assets/css/custom-slots-plugin.css', __FILE__));
+
+
     // Initialization of Swiper
     wp_add_inline_script('swiper-js', '
         jQuery(document).ready(function($) {
             var swiper = new Swiper(".swiper-container", {
-                slidesPerView: 3,
-                spaceBetween: 30,
-                loop: true,
+                slidesPerView: 2,
+                spaceBetween: 16,
                 navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
+                    nextEl: ".next-slot",
+                    prevEl: ".prev-slot",
                 },
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: false,
+                breakpoints: {
+                    481: {
+                        slidesPerView: 3,
+                        spaceBetween: 16,
+                    },
+                    769: {
+                        slidesPerView: 5,
+                        spaceBetween: 16,
+                    },
+                    1201: {
+                        slidesPerView: 6,
+                        spaceBetween: 16,
+                    },
+                    1367: {
+                        slidesPerView: 7,
+                        spaceBetween: 16,
+                    },
                 },
             });
         });
     ');
 }
-
 
 /* Add fonts */
 function add_google_fonts()
