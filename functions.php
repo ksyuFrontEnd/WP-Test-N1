@@ -14,7 +14,9 @@ function test_n1_scripts() {
     wp_enqueue_style('swiper-css', plugins_url('/custom-slots/assets/css/swiper.css', __FILE__));
     wp_enqueue_script('swiper-js', plugins_url('/custom-slots/assets/js/swiper.js', __FILE__), array('jquery'), null, true);
 
-    wp_enqueue_style('custom-slots-plugin-styles', plugins_url('/custom-slots/assets/css/custom-slots-plugin.css', __FILE__));
+    if (is_page_template('templates/mystery-drops.php')) {
+        wp_enqueue_style('mystery-drops', get_template_directory_uri() . '/src/styles/template-styles/mystery-drops.css', array('theme-style'));
+    }
 
 
     // Initialization of Swiper
